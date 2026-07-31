@@ -1,9 +1,13 @@
-<%= form_with(model: post, class: "space-y-6 max-w-2xl") do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_with(model: post, class: "space-y-6 w-full") do |form| %>
 
-      <ul>
+  <%# Error Handling Box %>
+  <% if post.errors.any? %>
+    <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg">
+      <h2 class="font-bold text-lg mb-2">
+        <%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:
+      </h2>
+
+      <ul class="list-disc list-inside space-y-1">
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,17 +15,17 @@
     </div>
   <% end %>
 
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2 w-full">
     <%= form.label :title, class: "font-semibold text-gray-700 text-lg" %>
     <%= form.text_field :title, class: "w-full p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm" %>
   </div>
 
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2 w-full">
     <%= form.label :content, class: "font-semibold text-gray-700 text-lg" %>
-    <%= form.text_area :content, rows: 5, class: "w-full p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm" %>
+    <%= form.text_area :content, rows: 8, class: "w-full p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm resize-y" %>
   </div>
 
   <div>
-    <%= form.submit "Create Post", class: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-5 rounded-lg shadow cursor-pointer transition" %>
+    <%= form.submit class: "bg-blue-600 hover:bg-blue-700 text-white font-semibold gap-2 w-full py-2.5 px-5 rounded-lg shadow cursor-pointer transition" %>
   </div>
 <% end %>
