@@ -1,6 +1,6 @@
 <% content_for :title, "New post" %>
 <div class="max-w-4xl mx-auto w-full px-4 py-8">
 <h1 class="font-bold text-4xl mb-8">New post</h1>
-<%= button_to "Back", posts_path, method: :get, class: "mb-6 bg-gray-300 hover:bg-gray-400 font-semibold py-2.5 px-5 rounded-lg shadow cursor-pointer transition type:button"%>
 <%= render "form", post: @post %>
+<%= button_to "Cancel", @post, method: :get, class: "mt-3 bg-gray-300 hover:bg-gray-400 font-semibold gap-2 w-full py-2.5 px-5 rounded-lg shadow cursor-pointer transition" %>
 </div>
