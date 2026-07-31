@@ -3,12 +3,12 @@
 <% content_for :title, "Posts" %>
 
 <h1>Posts</h1>
-<%= link_to "New post", new_post_path %><br><br><br>
+<%= button_to "New post", new_post_path %><br><br><br>
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Show this post", post %><br><br>
+      <%= button_to "Show this post", post %><br><br>
     </p>
   <% end %>
 </div>
