@@ -3,7 +3,7 @@
 <% content_for :title, "Posts" %>
 
 <h1 class="font-bold">Posts</h1>
-<%= button_to "New post", new_post_path, method: :get, class:"bg-gray-500 hover:bg-gray-600 py-2 px-3"%><br><br><br>
+<%= button_to "New post", new_post_path, method: :get, class:"text-white rounded-full bg-[#0000FF] hover:bg-[#5C5CFF] py-2 px-3"%><br><br><br>
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
