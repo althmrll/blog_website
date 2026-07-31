@@ -1,12 +1,10 @@
 <div id="<%= dom_id post %>">
   <div>
-    <strong>Title:</strong>
-    <%= post.title %>
+    <h2 class="font-bold"><%= post.title.camelize%></h2>
   </div>
 
   <div>
-    <strong>Content:</strong>
-    <%= post.content %>
+    <p><%= post.content %></p>
   </div>
 
 </div>
