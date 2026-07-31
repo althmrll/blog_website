@@ -4,6 +4,6 @@
 <%= render @post %>
 
 <div>
-  <%= button_to "Edit", edit_post_path(@post) %>
+  <%= button_to "Edit", edit_post_path(@post), method: :get %>
   <%= button_to "Delete", @post, method: :delete %>
 </div>
