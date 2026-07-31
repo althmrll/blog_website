@@ -1,9 +1,10 @@
 <p style="color: green"><%= notice %></p>
+<div class= "bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+<%= button_to "Back", posts_path, method: :get, class:"text-blue-600 hover:underline font-medium"%><br>
+<%= render @post %><br>
 
-<%= button_to "Back", posts_path, method: :get, class:"text-blue-600 hover:underline font-medium"%>
-<%= render @post %>
-
-<div>
-  <%= button_to "Edit", edit_post_path(@post), method: :get %>
-  <%= button_to "Delete", @post, method: :delete %>
+<div class="flex flex-row gap-5">
+  <%= button_to "Edit", edit_post_path(@post), method: :get, class:"text-blue-600 hover:underline font-medium" %>
+  <%= button_to "Delete", @post, method: :delete, class:"text-blue-600 hover:underline font-medium"%>
+</div>
 </div>
