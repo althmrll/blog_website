@@ -11,7 +11,7 @@
 
 <div class="mx-auto">
 <div>
-<h1 class="font-bold text-4xl mt-8 mb-5">Comments</h1>
+<h1 class="font-bold text-4xl mt-8 mb-5">Comments (<%= @post.comments.count %>)</h1>
 <% @post.comments.each do |comment| %>
   <div class="mb-5 border-l-4 border-gray-300 pl-4">
     <p class="whitespace-pre-wrap"><%= comment.content %></p>
