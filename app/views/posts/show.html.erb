@@ -9,7 +9,8 @@
 </div>
 </div>
 
-<h2>Comments</h2>
+<div>
+<h1 class="font-bold text-4xl">Comments</h1>
 <% @post.comments.each do |comment| %>
   <div style="border-left: 3px solid #ccc; padding-left: 10px; margin-bottom: 10px;">
     <p><%= comment.content %></p>
@@ -26,3 +27,4 @@
     <%= f.submit "Post Comment" %>
   </div>
 <% end %>
+</div>
