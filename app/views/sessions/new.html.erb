@@ -1,21 +1,17 @@
-<div>
-  <h1 class="font-bold text-4xl">Sessions#new</h1>
-  <p>Find me in app/views/sessions/new.html.erb</p>
-</div>
-<div style="max-w-md; margin: 2rem auto; padding: 1.5rem; border: 1px solid #ccc; border-radius: 8px;">
-  <h2>Log In</h2>
+<div style="max-width: 400px; margin: 3rem auto; padding: 2rem; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+  <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem;">Log In</h2>
 
-  <%= form_with(url: login_path, local: true) do |f| %>
+  <%= form_with(url: login_path, data: { turbo: false }) do |f| %>
     <div style="margin-bottom: 1rem;">
-      <%= f.label :username %><br>
-      <%= f.text_field :username, required: true, style: "width: 100%; padding: 0.5rem;" %>
+      <%= f.label :username, style: "display: block; font-weight: 600; margin-bottom: 0.25rem;" %>
+      <%= f.text_field :username, required: true, style: "width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;" %>
     </div>
 
-    <div style="margin-bottom: 1rem;">
-      <%= f.label :password %><br>
-      <%= f.password_field :password, required: true, style: "width: 100%; padding: 0.5rem;" %>
+    <div style="margin-bottom: 1.5rem;">
+      <%= f.label :password, style: "display: block; font-weight: 600; margin-bottom: 0.25rem;" %>
+      <%= f.password_field :password, required: true, style: "width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;" %>
     </div>
 
-    <%= f.submit "Log In", style: "padding: 0.5rem 1rem; background: #0284c7; color: white; border: none; border-radius: 4px; cursor: pointer;" %>
+    <%= f.submit "Log In", style: "width: 100%; padding: 0.75rem; background: #0284c7; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;" %>
   <% end %>
 </div>
