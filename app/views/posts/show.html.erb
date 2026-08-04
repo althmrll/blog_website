@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 <div class= "bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
 <%= button_to "Back", posts_path, method: :get, class:"text-blue-600 hover:underline font-medium"%><br>
-<%= render @post %><br>
+<%= render @post,%><br>
 
 <div class="flex flex-row gap-5">
   <%= button_to "Edit", edit_post_path(@post), method: :get, class:"text-blue-600 hover:underline font-medium" %>
@@ -14,7 +14,7 @@
 <h1 class="font-bold text-4xl mt-8 mb-5">Comments</h1>
 <% @post.comments.each do |comment| %>
   <div class="mb-5 border-l-4 border-gray-300 pl-4">
-    <p><%= comment.content %></p>
+    <p class="whitespace-pre-wrap"><%= comment.content %></p>
     <div class="flex gap-3 text-sm mt-2">
       <%= button_to "Edit", edit_post_comment_path(@post, comment), method: :get, class:"text-blue-600 hover:underline" %>
       <%= button_to "Delete", [@post, comment], method: :delete, class:"text-blue-600 hover:underline" %>
@@ -23,7 +23,7 @@
 <% end %>
 
 <%= form_with(model: [@post, Comment.new]) do |f| %>
-  <div class: "font-semibold text-gray-700 text-lg" %>
+  <div class="font-semibold text-gray-700 text-lg">
   </div>
     <%= f.text_area :content, placeholder: "Enter comment...", rows: 3, class: "w-300 p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"%>
   </div>
