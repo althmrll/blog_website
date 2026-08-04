@@ -42,12 +42,6 @@
 
     <%# Changed mt-28 to mt-8 and added flex-col so content stacks properly %>
     <main class="container mx-auto mt-8 px-5 flex flex-col">
-      <% if flash[:alert] %>
-        <p style="color: red; padding: 0.5rem 1rem;"><%= flash[:alert] %></p>
-      <% end %>
-      <% if flash[:notice] %>
-        <p style="color: green; padding: 0.5rem 1rem;"><%= flash[:notice] %></p>
-      <% end %>
       <%= yield %>
     </main>
   </body>
