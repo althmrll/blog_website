@@ -9,22 +9,22 @@
 </div>
 </div>
 
-<div>
-<h1 class="font-bold text-4xl">Comments</h1>
+<div >
+<h1 class="font-bold text-4xl mt-8 mb-5">Comments</h1>
 <% @post.comments.each do |comment| %>
-  <div style="border-left: 3px solid #ccc; padding-left: 10px; margin-bottom: 10px;">
+  <div class="mb-5 border-l-4 border-gray-300 pl-4">
     <p><%= comment.content %></p>
   </div>
 <% end %>
 
 <%= form_with(model: [@post, Comment.new]) do |f| %>
-  <div>
-    <%= f.label :content, "Your Comment" %><br>
-    <%= f.text_area :content, rows: 3 %>
+  <div class: "font-semibold text-gray-700 text-lg" %>
+  </div>
+    <%= f.text_area :content, rows: 3, class: "w-150 p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"%>
   </div>
 
   <div>
-    <%= f.submit "Post Comment" %>
+    <%= f.submit "Post Comment", class: "mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold gap-2 py-2.5 px-5 rounded-lg shadow cursor-pointer transition"%>
   </div>
 <% end %>
 </div>
