@@ -11,8 +11,8 @@ User.destroy_all
 
 User.create!(
   username: "althmrll",
-  password: "testrun7",
-  password_confirmation: "testrun7"
+  password: "testrun12",
+  password_confirmation: "testrun12"
 )
 
 puts "Successfully created admin user!"
