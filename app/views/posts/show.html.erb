@@ -21,7 +21,6 @@
     </div>
   </div>
 <% end %>
-<% end %>
 
 <%= form_with(model: [@post, Comment.new]) do |f| %>
   <div class: "font-semibold text-gray-700 text-lg" %>
@@ -32,6 +31,6 @@
   <div>
     <%= f.submit "Post Comment", class: "mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold gap-2 py-2.5 px-5 rounded-lg shadow cursor-pointer transition"%>
   </div>
-<% end %>
+  <% end %>
 </div>
 </div>
