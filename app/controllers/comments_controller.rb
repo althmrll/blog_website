@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
-  def edit
-  end
+  before_action :set_post
+  before_action :set_comment, only: [ :edit, :update, :destroy ]
 
   def create
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
 
     if @comment.save
@@ -11,30 +10,33 @@ class CommentsController < ApplicationController
     else
       redirect_to @post, alert: "Comment couldn't be created."
     end
+  end
+
+  def edit
+  end
 
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @post, notice: "Comment was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit, status: :unprocessable_content }
-        format.json { render json: @comment.errors, status: :unprocessable_content }
-      end
+    if @comment.update(comment_params)
+      redirect_to @post, notice: "Comment was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
   def destroy
-    @comment.destroy!
-    respond_to do |format|
-      format.html { redirect_to posts_path, notice: "Comment was successfully deleted.", status: :see_other }
-      format.json { head :no_content }
-    end
-  end
+    @comment.destroy
+    redirect_to @post, notice: "Comment was successfully deleted."
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
+
+  def set_comment
+    @comment = @post.comments.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:content)

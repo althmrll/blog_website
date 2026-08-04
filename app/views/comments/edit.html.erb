@@ -1,0 +1,14 @@
+<div class="max-w-lg mx-auto mt-8">
+  <h1 class="text-xl font-bold mb-4">Edit Comment</h1>
+
+  <%= form_with(model: [@post, @comment]) do |f| %>
+    <div class="mb-4">
+      <%= f.text_area :content, class: "w-full border p-2 rounded", rows: 3 %>
+    </div>
+
+    <div class="flex gap-2">
+      <%= f.submit "Update Comment", class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer" %>
+      <%= link_to "Cancel", @post, class: "text-gray-600 hover:underline p-2" %>
+    </div>
+  <% end %>
+</div>
