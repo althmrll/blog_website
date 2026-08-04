@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     resources :posts do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
+  
+  # Login & Logout routes
+  get    "/login",  to: "sessions#new"
+  post   "/login",  to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
   root "posts#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

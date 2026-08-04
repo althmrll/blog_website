@@ -33,7 +33,19 @@
 
     <%# Changed mt-28 to mt-8 and added flex-col so content stacks properly %>
     <main class="container mx-auto mt-8 px-5 flex flex-col">
-      <%= yield %>
+      <% if logged_in? %>
+        <%= link_to "+ New Post", new_post_path, style: "margin-right: 1rem;" %>
+        <%= button_to "Log Out", logout_path, method: :delete, style: "background: none; border: none; color: red; cursor: pointer; display: inline;" %>
+      <% else %>
+        <%= link_to "Log In", login_path %>
+      <% end %>
+      
+      <% if flash[:alert] %>
+        <p style="color: red; padding: 0.5rem 1rem;"><%= flash[:alert] %></p>
+      <% end %>
+      <% if flash[:notice] %>
+        <p style="color: green; padding: 0.5rem 1rem;"><%= flash[:notice] %></p>
+      <% end %>
     </main>
   </body>
 </html>
