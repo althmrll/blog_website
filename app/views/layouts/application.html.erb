@@ -26,20 +26,22 @@
   <body class="bg-gray-50">
     <%# OPTIONAL: If you want a top navigation bar/header on every page, put it here %>
     <header class="bg-white border-b border-gray-200 py-4 px-5 shadow-sm">
+      <div class="flex flex-row">
       <div class="container mx-2 font-bold text-4xl text-[#0000FF]">
         Blog App
+      </div>
+      <div class="ml-auto gap-4">
+      <% if logged_in? %>
+        <%= button_to "Log Out", logout_path, method: :delete, style: "background: none; border: none; color: red; cursor: pointer; display: inline;" %>
+      <% else %>
+        <%= link_to "Log In", login_path %>
+      <% end %>
+      </div>
       </div>
     </header>
 
     <%# Changed mt-28 to mt-8 and added flex-col so content stacks properly %>
     <main class="container mx-auto mt-8 px-5 flex flex-col">
-      <% if logged_in? %>
-        <%= link_to "+ New Post", new_post_path, style: "margin-right: 1rem;" %>
-        <%= button_to "Log Out", logout_path, method: :delete, style: "background: none; border: none; color: red; cursor: pointer; display: inline;" %>
-      <% else %>
-        <%= link_to "Log In", login_path %>
-      <% end %>
-      
       <% if flash[:alert] %>
         <p style="color: red; padding: 0.5rem 1rem;"><%= flash[:alert] %></p>
       <% end %>
