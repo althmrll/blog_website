@@ -2,7 +2,16 @@
   <div>
     <h2 class="font-bold text-5xl"><%= post.title.camelize%></h2><br>
   </div>
-
+  <% if @post.tags.any? %>
+    <div class="display-flex flex-wrap-wrap gap-2 mb-4">
+      <% @post.tags.each do |tag| %>
+        <% next if tag.name.blank? %>
+        <span class="text-s text-blue-600 hover:underline">
+          #<%= tag.name %>
+    </span>
+    <% end %>
+  </div>
+<% end %>
   <div>
     <p class="text-xl whitespace-pre-wrap"><%= post.content %></p>
   </div>
