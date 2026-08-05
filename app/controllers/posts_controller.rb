@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    3.times { @post.tags.build }
+    @post.tags.build
   end
 
   def edit
