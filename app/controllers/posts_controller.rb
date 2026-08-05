@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post.tags.build
   end
 
   def create
