@@ -20,6 +20,21 @@
     <%= form.text_field :title, class: "w-full p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm" %>
   </div>
 
+  <div style="margin-bottom: 1rem; padding: 1rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px;">
+    <%= form.label :tags, "Tags", style: "display: block; font-weight: bold; margin-bottom: 0.5rem;" %>
+
+    <%= form.fields_for :tags do |tag_form| %>
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center;">
+        <%= tag_form.text_field :name, placeholder: "e.g. #Rails, Tech, News", style: "padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; flex-grow: 1;" %>
+        
+        <% if tag_form.object.persisted? %>
+          <label style="font-size: 0.85rem; color: #dc2626;">
+            <%= tag_form.check_box :_destroy %> Remove
+          </label>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
   <div class="flex flex-col gap-2 w-full">
     <%= form.label :content, class: "font-semibold text-gray-700 text-lg" %>
     <%= form.text_area :content, rows: 8, class: "w-full p-3 bg-white border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm resize-y" %>

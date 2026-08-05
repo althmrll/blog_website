@@ -11,9 +11,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    3.times { @post.tags.build }
   end
 
   def edit
+    @post.tags.build
   end
 
   def create
@@ -47,5 +49,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content)
+    params.require(:post).permit(
+      :title,
+      :content,
+      tags_attributes: [ :id, :name, :_destroy ]
+    )
   end
 end
