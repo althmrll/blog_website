@@ -15,6 +15,10 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    existing_tags = @post.tag_list
+    @post.tags.destroy_all
+    @post.tags.build(name: existing_tags)
   end
 
   def create
