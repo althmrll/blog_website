@@ -13,7 +13,9 @@ class Tag < ApplicationRecord
 
     if tags.length > 1 && post
       tags.each do |extra_word|
-        post.tags.build(name: extra_word)
+        unless post.tags.any? { |t| t.name == extra_word }
+          post.tags.build(name: extra_word)
+        end
       end
     end
   end
